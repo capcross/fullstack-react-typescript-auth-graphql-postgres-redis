@@ -1,5 +1,5 @@
 # fullstack-react-typescript-auth-graphql-postgres-redis
 
-React + React Native + React Router + TypeScript + GraphQL + PostgreSql + Redis + Lerna + SignUp + SignIn + ForgetPassword fullstack boilerplate - based on Ben Awad's "Fullstack Airbnb clone" (https://www.youtube.com/playlist?list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s).
+React + React Native + React Router + Formic + TypeScript + GraphQL + Apollo + PostgreSql + Redis + Monorepo (Lerna, Yarn Workspaces) + SignUp + SignIn + ForgetPassword fullstack boilerplate - based on Ben Awad's brilliant "Fullstack Airbnb clone" (https://www.youtube.com/playlist?list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s) playlist.
 
-Most of all we already need but PostgreSql and Redis are optional yet.
+Most of all we are going to use (PostgreSql and Redis are optional yet).

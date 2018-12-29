@@ -1,7 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
+import Button from "antd/lib/button";
 
 export default class RegisterView extends React.PureComponent {
   render() {
-    return <div>hello</div>;
+    return <Button type="primary">Button</Button>;
   }
 }

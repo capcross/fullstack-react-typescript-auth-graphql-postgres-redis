@@ -30,7 +30,9 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
         <div style={{ width: 400, margin: "auto" }}>
           <FormItem
             help={touched.email && errors.email ? errors.email : ""}
-            validateStatus="error"
+            validateStatus={
+              touched.email && errors.email ? "error" : undefined
+            }
           >
             <Input
               name="email"
@@ -100,6 +102,7 @@ const validationSchema = yup.object().shape({
 
 export const RegisterView = withFormik<Props, FormValues>({
   validationSchema,
+  validateOnChange: false,
   mapPropsToValues: () => ({ email: "", password: "" }),
   handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
     const errors = await props.submit(values);

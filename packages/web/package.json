@@ -15,7 +15,8 @@
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "2.16.0",
-    "yup": "^0.26.6"
+    "yup": "^0.26.6",
+    "@cap-cross/common": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

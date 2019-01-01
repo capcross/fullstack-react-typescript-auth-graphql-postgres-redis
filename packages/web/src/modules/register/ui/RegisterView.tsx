@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Form, Icon, Input, Button } from "antd";
 import { withFormik, FormikErrors, FormikProps } from "formik";
-import * as yup from "yup";
+import { validUserSchema } from "@cap-cross/common";
 
 const FormItem = Form.Item;
 
@@ -24,15 +24,13 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
       touched,
       errors,
     } = this.props;
-    console.log(errors);
+
     return (
       <form style={{ display: "flex" }} onSubmit={handleSubmit}>
         <div style={{ width: 400, margin: "auto" }}>
           <FormItem
             help={touched.email && errors.email ? errors.email : ""}
-            validateStatus={
-              touched.email && errors.email ? "error" : undefined
-            }
+            validateStatus={touched.email && errors.email ? "error" : undefined}
           >
             <Input
               name="email"
@@ -45,6 +43,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
           </FormItem>
           <FormItem
             help={touched.password && errors.password ? errors.password : ""}
+            // tslint:disable-next-line:jsx-no-multiline-js
             validateStatus={
               touched.password && errors.password ? "error" : undefined
             }
@@ -82,28 +81,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
   }
 }
 
-const emailNotLongEnough = "email must be at least 3 characters";
-const passwordNotLongEnough = "password must be at least 3 characters";
-const invalidEmail = "email must be a valid email";
-
-const validationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .min(3, emailNotLongEnough)
-    .max(255)
-    .email(invalidEmail)
-    .required(),
-  password: yup
-    .string()
-    .min(3, passwordNotLongEnough)
-    .max(255)
-    .required(),
-});
-
 export const RegisterView = withFormik<Props, FormValues>({
-  validationSchema,
-  validateOnChange: false,
-  validateOnBlur: false,
+  validationSchema: validUserSchema,
   mapPropsToValues: () => ({ email: "", password: "" }),
   handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
     const errors = await props.submit(values);

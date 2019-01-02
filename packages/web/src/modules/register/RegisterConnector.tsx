@@ -1,20 +1,18 @@
 import * as React from "react";
 import { RegisterController } from "@cap-cross/controller";
-
 import { RegisterView } from "./ui/RegisterView";
 
-export class RegisterConnector extends React.PureComponent {
-  dummySubmit = async (values: any) => {
-    console.log(values);
-    return null;
-  };
+// container -> view
+// container -> connector -> view
+// controller -> connector -> view
 
+export class RegisterConnector extends React.PureComponent {
   render() {
     return (
-      <React.Fragment>
-        <RegisterController />
-        <RegisterView submit={this.dummySubmit} />;
-      </React.Fragment>
+      <RegisterController>
+        {({ submit }) => <RegisterView submit={submit} />}
+      </RegisterController>
     );
   }
 }
+

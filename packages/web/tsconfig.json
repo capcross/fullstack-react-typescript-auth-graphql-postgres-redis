@@ -14,11 +14,10 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "types": ["jest", "node", "react", "react-dom", "react-router-dom"]
+    "types": ["jest", "node", "react", "react-dom", "react-router-dom"],
   },
   "exclude": [
     "node_modules",
